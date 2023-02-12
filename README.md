@@ -7,8 +7,8 @@
 
 ### Links
 
-- Solution URL: [https://www.frontendmentor.io/solutions/ecommerce-product-page-with-react-and-tailwind-css-qoNj6h7Sli](https://www.frontendmentor.io/solutions/ecommerce-product-page-with-react-and-tailwind-css-qoNj6h7Sli)
-- Live Site URL: [https://e-commerce-product-page-react.netlify.app/](https://e-commerce-product-page-react.netlify.app/)
+- Solution URL: [https://www.frontendmentor.io/solutions/ecommerce-product-page-made-with-next-js-and-tailwind-css-YzW80r6JH4](https://www.frontendmentor.io/solutions/ecommerce-product-page-made-with-next-js-and-tailwind-css-YzW80r6JH4)
+- Live Site URL: [https://e-commerce-product-page-nextjs.vercel.app/](https://e-commerce-product-page-nextjs.vercel.app/)
 
 ```js
 const showMessage = () => {
