@@ -1,36 +1,55 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import hamburger from '../assets/icon-menu.svg'
-import close_hamburguer from '../assets/icon-close.svg'
-import avatar from '../assets/image-avatar.png'
-import cart from '../assets/icon-cart.svg'
+import close_hamburguer from '../assets/icon-close-burger.svg'
 import logo from '../assets/logo.svg'
 import Container from './Container'
-const Header = () => {
-    const [menuHamburguer, setMenuHamburguer] = useState(false)
-
+import Cart from './Cart'
+import User from './User'
+const Header = ({ quantity, menuCart, setMenuCart }) => {
+    const [menuHamburguer, setMenuHamburguer] = useState(true)
     const sections = ['Collections', 'Men', 'Woman', 'About', 'Contact']
     return (
-        <header className='flex justify-between items-center h-16'>
-            <Container>
-
-                <div className='flex items-center justify-between w-36 h-16'>
-                    <Image className='md:hidden transition-all ease-in-out duration-1000 m-0 p-0' onClick={() => setMenuHamburguer(!menuHamburguer)} src={menuHamburguer ? hamburger : close_hamburguer} height={2} width={16} alt={menuHamburguer ? 'hamburger_menu' : 'close_hamburger_menu'} />
-                    {/* <h1 className='font-bold'>Sneakers</h1> */}
-                    <Image src={logo} height={120} width={120} alt='logo' />
-                    <ol className='md:flex ml-4 gap-6 items-center justify-between hidden'>
-                        {sections.map(sect => <li className='md:hover:border-b-2 border-b-red-400 cursor-pointer h-16 leading-[4rem]' key={sect}>{sect}</li>)}
+        <Container>
+            <header className='flex justify-between items-center h-16 md:h-24 w-full border-b-2 border-gray-200 md:mb-8'>
+                <div className='flex items-center justify-between w-auto md:w-[550px] h-16'>
+                    <Image className={`relative z-50 md:hidden ${menuHamburguer ? '' : 'hidden'} transition-all ease-in-out duration-1000 m-0 p-0 mr-4`} onClick={() => {
+                        setMenuCart(false)
+                        setMenuHamburguer(!menuHamburguer)
+                    }}
+                        src={menuHamburguer ? hamburger : close_hamburguer}
+                        height={2}
+                        width={16}
+                        alt={menuHamburguer ? 'hamburger_menu' : 'close_hamburger_menu'} />
+                    <Image
+                        src={logo}
+                        height={115}
+                        width={115}
+                        alt='logo'
+                        className='md:w-32 h-5' />
+                    <ol className='md:flex gap-6 items-center justify-between hidden m-0 p-0 h-24'>
+                        {sections.map(sect => <li className='md:hover:border-b-4 border-orange cursor-pointer h-24 leading-[96px]' key={sect}>{sect}</li>)}
                     </ol>
-                </div>
-                <div className='flex justify-between w-14 items-center'>
-                    <div>
-                        <Image src={cart} height={20} width={20} alt='cart' />
-                        <span></span>
+                    <div className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 md:hidden fixed w-full left-0 bottom-0 h-screen bg-black z-40`}>
+                        <ol className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300  absolute w-1/2 bg-white h-full flex  flex-col pt-6 font-bold pl-4`}>
+                            <Image className='relative z-50 md:hidden transition-all ease-in-out duration-1000 m-0 p-0 mr-4' onClick={() => {
+                                setMenuCart(false)
+                                setMenuHamburguer(!menuHamburguer)
+                            }}
+                                src={menuHamburguer ? hamburger : close_hamburguer}
+                                height={2}
+                                width={16}
+                                alt={menuHamburguer ? 'hamburger_menu' : 'close_hamburger_menu'} />
+                            {sections.map(sect => <li className='md:hover:border-b-4 border-orange cursor-pointer h-16 leading-[64px]' key={sect}>{sect}</li>)}
+                        </ol>
                     </div>
-                    <Image src={avatar} height={22} width={22} alt='avatar' />
                 </div>
-            </Container>
-        </header>
+                <div className='flex justify-between w-auto items-center'>
+                    <Cart quantity={quantity} menuCart={menuCart} setMenuCart={setMenuCart} />
+                    <User />
+                </div>
+            </header>
+        </Container>
     )
 }
 
