@@ -31,7 +31,7 @@ const Header = ({ quantity, menuCart, setMenuCart }) => {
                         {sections.map(sect => <li className='md:hover:border-b-4 border-orange cursor-pointer h-24 leading-[96px]' key={sect}>{sect}</li>)}
                     </ol>
                     <div className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 md:hidden fixed w-full top-0 left-0 bottom-0 h-screen bg-black z-40`}>
-                        <ol className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 w-1/2 bg-white h-screen pt-6 font-bold pl-4`}>
+                        <ol className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 w-1/2 bg-white h-screen pt-6 font-bold pl-4 `}>
                             <Image onClick={() => {
                                 setMenuCart(false)
                                 setMenuHamburguer(!menuHamburguer)
@@ -39,8 +39,8 @@ const Header = ({ quantity, menuCart, setMenuCart }) => {
                                 src={menuHamburguer ? hamburger : close_hamburguer}
                                 height={2}
                                 width={16}
-                                alt={menuHamburguer ? 'hamburger_menu' : 'close_hamburger_menu'} />
-                            {sections.map(sect => <li className='md:hover:border-b-4 border-orange cursor-pointer h-16 leading-[64px]' key={sect}>{sect}</li>)}
+                                alt={menuHamburguer ? 'hamburger_menu' : 'close_hamburger_menu'} className='mb-12' />
+                            {sections.map(sect => <li className='md:hover:border-b-4 border-orange cursor-pointer' key={sect}>{sect}</li>)}
                         </ol>
                     </div>
                 </div>
