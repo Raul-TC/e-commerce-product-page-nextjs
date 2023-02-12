@@ -13,7 +13,7 @@ const Header = ({ quantity, menuCart, setMenuCart }) => {
         <Container>
             <header className='flex justify-between items-center h-16 md:h-24 w-full border-b-2 border-gray-200 md:mb-8'>
                 <div className='flex items-center justify-between w-auto md:w-[550px] h-16'>
-                    <Image className={`relative z-50 md:hidden ${menuHamburguer ? '' : 'hidden'} transition-all ease-in-out duration-1000 m-0 p-0 mr-4`} onClick={() => {
+                    <Image className={` md:hidden ${menuHamburguer ? '' : 'hidden'} transition-all ease-in-out duration-1000 m-0 p-0 mr-4`} onClick={() => {
                         setMenuCart(false)
                         setMenuHamburguer(!menuHamburguer)
                     }}
@@ -32,7 +32,7 @@ const Header = ({ quantity, menuCart, setMenuCart }) => {
                     </ol>
                     <div className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 md:hidden fixed w-full left-0 bottom-0 h-screen bg-black z-40`}>
                         <ol className={`${menuHamburguer ? '-translate-x-full' : 'translate-x-0'} transition-all ease-linear duration-300 w-1/2 bg-white h-screen flex flex-col pt-6 font-bold pl-4`}>
-                            <Image className='relative z-50 md:hidden transition-all ease-in-out duration-1000 m-0 p-0 mr-4' onClick={() => {
+                            <Image className='md:hidden transition-all ease-in-out duration-1000 m-0 p-0 mr-4' onClick={() => {
                                 setMenuCart(false)
                                 setMenuHamburguer(!menuHamburguer)
                             }}
