@@ -28,10 +28,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content="E-Commerce Product Page" />
         <meta property="og:type" content="Sneakers" />
-        <meta property="og:url" content="./" />
+        <meta property="og:url" content="./image-product.jpg" />
         <meta property="og:image" content="./image-product.jpg" />
         <meta property="og:description" content="Fall Limited Edition Sneakers" />
-        <link rel="icon" href="/shop-svgrepo-com.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${kumbh.className} max-w-screen-xl m-auto `}>
         <Header quantity={quantity} menuCart={menuCart} setMenuCart={setMenuCart} />
